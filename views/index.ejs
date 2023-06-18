@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Facebook BackEnd Challenge</title>
+</head>
+<body>
+    <h1>Welcome to Facebook</h1>
+    <a href="/add-new">Add a Post</a>
+
+    <form action="/feed" method="post">
+        <input type="text" name="title" placeholder="here is the title"> 
+        <br>
+        <textarea name="text" placeholder="write the topic here"></textarea>
+        <br>
+        <button>Submit</button>
+    </form>
+
+    <div class="user-list">
+        <% for (let i=0; i<users.length; i++) {%>
+            <div class="user-list-container">
+                <div class="text">
+                <h3 class="name-date"><span>Title: <%= users[i].title %></span></h3>
+                <p class="user-post">Text: <%= users[i].text.slice(0, 30) %></p>
+                <p>Added at: <%= users[i].create_at %></p>
+                <a href="/feed/1/<%=users[i]._id %>">See More...</a>
+
+                </div>
+            </div>
+        <%}%>
+    </div>
+
+</body>
+</html>
